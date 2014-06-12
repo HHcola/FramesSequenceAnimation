@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="feed_icons">
+    <item>@drawable/qqwwaa0006</item>
+    <item>@drawable/qqwwaa0007</item>
+    <item>@drawable/qqwwaa0008</item>
+    <item>@drawable/qqwwaa0009</item>
+    <item>@drawable/qqwwaa0010</item>
+    <item>@drawable/qqwwaa0011</item>
+    <item>@drawable/qqwwaa0012</item>
+    <item>@drawable/qqwwaa0013</item>
+    <item>@drawable/qqwwaa0014</item>
+    <item>@drawable/qqwwaa0015</item>
+    <item>@drawable/qqwwaa0016</item>
+    <item>@drawable/qqwwaa0017</item>
+    <item>@drawable/qqwwaa0018</item>
+    <item>@drawable/qqwwaa0019</item>
+    <item>@drawable/qqwwaa0020</item>
+    <item>@drawable/qqwwaa0021</item>
+    <item>@drawable/qqwwaa0022</item>
+    <item>@drawable/qqwwaa0023</item>
+    <item>@drawable/qqwwaa0024</item>
+    <item>@drawable/qqwwaa0025</item>
+    <item>@drawable/qqwwaa0026</item>
+    <item>@drawable/qqwwaa0027</item>
+    <item>@drawable/qqwwaa0028</item>
+    <item>@drawable/qqwwaa0029</item>
+    <item>@drawable/qqwwaa0030</item>
+    <item>@drawable/qqwwaa0031</item>
+    <item>@drawable/qqwwaa0032</item>
+    <item>@drawable/qqwwaa0033</item>
+    <item>@drawable/qqwwaa0034</item>
+    <item>@drawable/qqwwaa0035</item>
+    <item>@drawable/qqwwaa0036</item>
+    <item>@drawable/qqwwaa0037</item>
+    <item>@drawable/qqwwaa0038</item>
+    <item>@drawable/qqwwaa0039</item>
+    <item>@drawable/qqwwaa0040</item>
+    <item>@drawable/qqwwaa0041</item>
+    <item>@drawable/qqwwaa0042</item>
+    <item>@drawable/qqwwaa0043</item>
+    <item>@drawable/qqwwaa0044</item>
+    <item>@drawable/qqwwaa0045</item>
+    <item>@drawable/qqwwaa0046</item>
+    <item>@drawable/qqwwaa0047</item>
+    <item>@drawable/qqwwaa0048</item>
+    <item>@drawable/qqwwaa0049</item>
+    <item>@drawable/qqwwaa0050</item>
+</string-array>  
+
+</resources>

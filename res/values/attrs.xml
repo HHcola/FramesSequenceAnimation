@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="anim_list">  
+        <attr name="anim_oneshot" format="boolean"/>
+        <attr name="anim_ariablePadding" format="integer"/>
+        <attr name="anim_visible" format="boolean"/>
+    </declare-styleable> 
+</resources>

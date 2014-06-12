@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<anim_list xmlns:android="http://schemas.android.com/apk/res/android"
+    anim_oneshot="true">
+    <item android:drawable="@drawable/qqwwaa0030" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0031" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0032" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0033" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0034" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0035" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0036" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0037" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0038" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0039" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0040" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0041" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0042" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0043" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0044" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0045" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0046" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0047" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0048" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0049" android:duration="30" />
+    <item android:drawable="@drawable/qqwwaa0050" android:duration="30" />
+</anim_list>
