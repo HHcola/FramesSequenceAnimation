@@ -2,6 +2,8 @@ package com.example.framessequenceanimation;
 
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -26,7 +28,7 @@ public class MainActivity extends Activity {
 	
 	private void onShowAnimByFrame() {
 		ImageView image  = (ImageView)findViewById(R.id.screen_view_anim);
-		framesSequenceAnimation = new FramesSequenceAnimation(this,image, R.array.feed_icons, 40);
+		framesSequenceAnimation = new FramesSequenceAnimation(this,image, R.array.feed_icons, 30);
 //		framesSequenceAnimation.setOneShot(true);
 		framesSequenceAnimation.start();
 	}

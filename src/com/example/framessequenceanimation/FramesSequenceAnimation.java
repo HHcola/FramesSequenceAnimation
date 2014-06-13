@@ -1,5 +1,7 @@
 package com.example.framessequenceanimation;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.lang.ref.SoftReference;
 
 import android.content.Context;
@@ -9,6 +11,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Handler;
+import android.provider.Settings.System;
+import android.util.TypedValue;
 import android.widget.ImageView;
 
 public class FramesSequenceAnimation {
@@ -40,20 +44,39 @@ public class FramesSequenceAnimation {
         imageView.setImageResource(animationFrames[0]);
         
         // use in place bitmap to save GC work (when animation images are the same size & type)
-        if (Build.VERSION.SDK_INT >= 11) {
-            Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-            int width = bmp.getWidth();
-            int height = bmp.getHeight();
-            Bitmap.Config config = bmp.getConfig();
-            bitmap = Bitmap.createBitmap(width, height, config);
-            bitmapOptions = new BitmapFactory.Options();
-            // setup bitmap reuse options. 
-            bitmapOptions.inBitmap = bitmap; // reuse this bitmap when loading content
-            bitmapOptions.inMutable = true;
-            bitmapOptions.inSampleSize = 1;
-        }
+//        if (Build.VERSION.SDK_INT >= 11) {
+////            Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+////            int width = bmp.getWidth();
+////            int height = bmp.getHeight();
+////            Bitmap.Config config = bmp.getConfig();
+////            bitmap = Bitmap.createBitmap(width, height, config);
+//            bitmapOptions = new BitmapFactory.Options();
+//            // setup bitmap reuse options. 
+////            bitmapOptions.inBitmap = bitmap; // reuse this bitmap when loading content
+//            bitmapOptions.inMutable = true;
+//            bitmapOptions.inSampleSize = 1;
+//        }
+//        
+        bitmapOptions = newOptions();
+        bitmap = decode(bitmapOptions,getNext());
+        bitmapOptions.inBitmap = bitmap;
     }
     
+    
+    private BitmapFactory.Options newOptions() {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 1;
+        options.inMutable = true;
+        options.inJustDecodeBounds = true;
+        options.inPurgeable = true;
+        options.inInputShareable = true;
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        return options;
+    }
+    
+    private Bitmap decode(BitmapFactory.Options options,int imageRes) {
+         return BitmapFactory.decodeResource(mSoftReferenceImageView.get().getResources(), imageRes, bitmapOptions);
+    }
     /**
      * set animation oneshot
      * @param oneShot
@@ -90,6 +113,7 @@ public class FramesSequenceAnimation {
         }
 
         Runnable runnable = new Runnable() {
+			@SuppressWarnings("null")
 			@Override
             public void run() {
                 ImageView imageView = mSoftReferenceImageView.get();
@@ -107,11 +131,19 @@ public class FramesSequenceAnimation {
                 if (imageView.isShown()) {
                     int imageRes = getNext();
                     if (bitmap != null) { // so Build.VERSION.SDK_INT >= 11
-                        bitmap = null;
+//                    	if (bitmap != null && !bitmap.isRecycled()) {
+//                        	bitmap.recycle();
+//                        	bitmap = null;
+//
+//                    	}
                         try {
-                            bitmap = BitmapFactory.decodeResource(imageView.getResources(), imageRes, bitmapOptions);
+                        	InputStream is = imageView.getResources().openRawResource(imageRes);
+                        	bitmap = BitmapFactory.decodeStream(is,null,bitmapOptions);
+//                        	bitmap = BitmapFactory.decodeResource(imageView.getResources(), imageRes, bitmapOptions);
                         } catch (Exception e) {
                             e.printStackTrace();
+                            bitmap.recycle();
+                            bitmap = null;
                         }
                         if (bitmap != null) {
                             imageView.setImageBitmap(bitmap);
@@ -146,6 +178,7 @@ public class FramesSequenceAnimation {
 			int feedResId = typedArray.getResourceId(index, 0);
 			animationFrames[index] = feedResId;
 		}
+		typedArray.recycle();
 	}
 
     public void setFramesSequenceAnimationListener(FramesSequenceAnimationListener onAnimationStoppedListener) {
